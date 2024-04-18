@@ -1,0 +1,48 @@
+# Generated with JReleaser 1.11.0 at 2024-04-17T16:32:02.524243+02:00
+project:
+  name: jgardo-example-app
+  version: 1.0.0-alpha2
+  description: Example CLI
+  longDescription: Example CLI
+  authors:
+    - jgardo.dev
+  license: Apache-2.0
+  links:
+    homepage: https://jgardo.dev
+  java:
+    groupId: dev.jgardo.cli
+    version: 17
+  inceptionYear: 2024
+
+release:
+  github:
+    tagName: "{{projectVersion}}"
+    owner: jgardo
+    overwrite: true
+
+distributions:
+  jgardo-example-app:
+    name: jgardo-example-app
+    type: JAVA_BINARY
+    executable:
+      name: jgardo-example-app
+    tags:
+      - cli
+        #    artifacts:
+#      - #    artifacts:
+#      - path: path/to/{{distributionName}}-{{projectVersion}}.zip
+
+packagers:
+  chocolatey:
+    active: ALWAYS
+    remoteBuild: true
+    packageVersion: '{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}'
+
+
+assemble:
+  javaArchive:
+    jgardo-example-app:
+      active: ALWAYS
+      formats: [ ZIP, TAR_GZ ]
+      mainJar:
+        path: target/command-mode-quickstart-{{projectVersion}}-runner.jar
