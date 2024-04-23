@@ -1,7 +1,6 @@
-# Generated with JReleaser 1.11.0 at 2024-04-17T16:32:02.524243+02:00
 project:
-  name: jgardo-example-app
-  version: 1.0.0-alpha2
+  name: jgardo
+  version: 1.0.0-alpha3
   description: Example CLI
   longDescription: Example CLI
   authors:
@@ -17,32 +16,31 @@ project:
 release:
   github:
     tagName: "{{projectVersion}}"
-    owner: jgardo
+    owner: jgardo-ds
     overwrite: true
 
 distributions:
-  jgardo-example-app:
-    name: jgardo-example-app
+  jgardo:
+    name: jgardo
     type: JAVA_BINARY
     executable:
-      name: jgardo-example-app
+      name: jgardo
     tags:
       - cli
-        #    artifacts:
-#      - #    artifacts:
-#      - path: path/to/{{distributionName}}-{{projectVersion}}.zip
 
 packagers:
-  chocolatey:
+  scoop:
     active: ALWAYS
-    remoteBuild: true
-    packageVersion: '{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}'
+    continueOnError: false
+    repository:
+      owner: jgardo-ds
+      name: scoop-poc
 
 
 assemble:
   javaArchive:
-    jgardo-example-app:
+    jgardo:
       active: ALWAYS
       formats: [ ZIP, TAR_GZ ]
       mainJar:
-        path: target/command-mode-quickstart-{{projectVersion}}-runner.jar
+        path: target/jgardo-{{projectVersion}}-runner.jar
