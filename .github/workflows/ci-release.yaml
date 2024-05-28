@@ -33,5 +33,4 @@ jobs:
 
       - name: Release perform
         run: |
-          ./mvnw -B release:perform -P container-image-multiplatform,release \
-            -Darguments="-Dquarkus.container-image.push=true"
+          ./mvnw -B release:perform -P release
