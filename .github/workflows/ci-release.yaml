@@ -20,7 +20,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           mkdir -p ~/.ssh
           printf '%s\n' "${{ secrets.SSH_SECRET_KEY }}" > ~/.ssh/id_rsa
-          printf '%s\n' "${{ secrets.HOMEBREW_SSH_SECRET_KEY }}" > ~/.ssh/id_rsa
+          printf '%s\n' "${{ secrets.HOMEBREW_SSH_SECRET_KEY }}" > ~/.ssh/id_rsa_homebrew
           chmod 0600 ~/.ssh/id_rsa
 
       - name: Set up JDK 17
