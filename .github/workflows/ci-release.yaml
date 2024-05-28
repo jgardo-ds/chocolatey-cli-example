@@ -1,6 +1,7 @@
 name: 'Release: Maven and Docker Artifacts'
 
 on:
+  workflow_dispatch:
   push:
 
 permissions:
