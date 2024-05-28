@@ -1,6 +1,6 @@
 project:
   name: jgardo
-  version: 1.0.0-alpha4
+  version: {{projectVersion}}
   description: Example CLI
   longDescription: Example CLI
   authors:
